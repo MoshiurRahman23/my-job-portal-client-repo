@@ -1,3 +1,5 @@
-export const jobCreatedByPromise = email =>{
-    return fetch(`http://localhost:5000/jobs?email=${email}`).then(res =>res.json())
+export const jobCreatedByPromise = async email =>{
+    const res = await fetch(`http://localhost:5000/jobs?email=${email}`)
+    return res.data
 }
+

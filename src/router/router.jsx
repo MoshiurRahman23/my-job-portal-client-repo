@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import HomePage from "../pages/Home/Home";
@@ -70,7 +71,6 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
-          // fetch(`http://localhost:5000/hr/jobs/applications/${params.hr_email}`)
       },
       {
         path: "addjobs",

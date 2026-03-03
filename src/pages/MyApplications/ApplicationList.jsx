@@ -3,12 +3,12 @@ import JobApplicationRow from './JobApplicationRow';
 
 
 
-const ApplicationList = ({myApplicationPromise}) => {
-    const applications = use(myApplicationPromise);
-    // console.log(applications)
+const ApplicationList = ({myApplicationsPromise}) => {
+    const applications = use(myApplicationsPromise);
+    console.log(applications)
   return (
     <div>
-        <h1 className='text-center font-semibold text-5xl my-5'>Jobs Application so far : {applications?.data?.length}</h1>
+        <h1 className='text-center font-semibold text-5xl my-5'>Jobs Application so far : {applications?.length}</h1>
         <div className="overflow-x-auto">
         <table className="table">
             {/* head */}
@@ -18,7 +18,7 @@ const ApplicationList = ({myApplicationPromise}) => {
             </tr>
             </thead>
             <tbody>
-           {applications?.data?.map((application,index)=><JobApplicationRow
+           {applications?.map((application,index)=><JobApplicationRow
             key={application._id}
             index={index}
             application={application}

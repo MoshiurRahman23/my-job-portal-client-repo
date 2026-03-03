@@ -1,13 +1,11 @@
 import { use } from "react";
 import { Link } from "react-router";
 
-const JobsList = ({ jobCreatedByPromise }) => {
-  const jobs = use(jobCreatedByPromise);
+const JobsList = ({jobCreatedByPromise} ) => {
+  const jobs = use(jobCreatedByPromise); 
 
   return (
-    <div className="p-4 md:p-6 max-w-7xl mx-auto">
-      
-      {/* Heading */}
+     <div className="p-4 md:p-6 max-w-7xl mx-auto">
       <h1 className="text-2xl md:text-3xl font-bold mb-6 text-center md:text-left">
         My Posted Jobs: {jobs?.length}
       </h1>

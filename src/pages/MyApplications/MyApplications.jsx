@@ -4,21 +4,25 @@ import { Suspense } from "react"
 import ApplicationList from "./ApplicationList"
 import ApplicationStar from "./ApplicationStar"
 import useAuth from "../../hooks/useAuth";
-import { myApplicationPromise } from "../../api/ApplicationApi";
-// console.log(myApplicationPromise)
+import useApplicationApi from "../../api/useApplicationApi";
 
 
 
 const MyApplications = () => {
     const {user}=useAuth();
+    const { myApplicationsPromise } = useApplicationApi();
     console.log("User Firebase Acess Token",user.accessToken)
   return (
     <div className="min-h-screen">
     <ApplicationStar/>
     <Suspense fallback={"Loading your applications"}>
-        <ApplicationList
-            myApplicationPromise={myApplicationPromise(user?.email,user?.accessToken)}
-        />
+        {
+        user?.email && (
+          <ApplicationList
+            myApplicationsPromise={myApplicationsPromise(user.email)}
+          />
+        )
+      }
     </Suspense>
     </div>
   )

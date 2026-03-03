@@ -1,11 +1,12 @@
-// import ApplicationStar from "../MyApplications/ApplicationStar";
+import ApplicationStar from "../MyApplications/ApplicationStar";
 import useAuth from "../../hooks/useAuth";
 import { Suspense } from "react";
 import JobsList from "./JobsList";
-import { jobCreatedByPromise } from "../../api/JobsApi";
+import useJobApi from "../../api/useJobApi";
 
 const MyPostedJobs = () => {
   const { user } = useAuth();
+  const { jobCreatedByPromise } = useJobApi();
 
   if (!user?.email) {
     return <div>Loading user...</div>;
@@ -13,7 +14,7 @@ const MyPostedJobs = () => {
 
   return (
     <div className="min-h-screen">
-      {/* <ApplicationStar /> */}
+      <ApplicationStar />
 
       <Suspense fallback={"Loading your Jobs"}>
         <JobsList

@@ -33,7 +33,7 @@ const ApplicantsTable = () => {
             </thead>
 
             <tbody>
-              {data.map((applicant, index) => (
+              {data?.map((applicant, index) => (
                 <tr key={applicant._id} className="hover">
                   <td>{index + 1}</td>
 
