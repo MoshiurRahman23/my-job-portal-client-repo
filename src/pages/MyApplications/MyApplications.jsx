@@ -1,5 +1,3 @@
-
-
 import { Suspense } from "react"
 import ApplicationList from "./ApplicationList"
 import ApplicationStar from "./ApplicationStar"
@@ -8,10 +6,12 @@ import useApplicationApi from "../../api/useApplicationApi";
 
 
 
+
 const MyApplications = () => {
     const {user}=useAuth();
     const { myApplicationsPromise } = useApplicationApi();
-    console.log("User Firebase Acess Token",user.accessToken)
+    // console.log("User Firebase Acess Token",user.accessToken)
+   
   return (
     <div className="min-h-screen">
     <ApplicationStar/>

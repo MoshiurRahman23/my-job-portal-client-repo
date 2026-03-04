@@ -2,6 +2,7 @@ import { FaDollarSign, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link } from 'react-router';
 
 const HotJobCard = ({ job }) => {
+  console.log(job)
   const { _id, title, company, company_logo, requirements, description, location, salaryRange } = job;
 
   return (

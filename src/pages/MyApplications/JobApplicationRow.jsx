@@ -1,25 +1,7 @@
 
-const JobApplicationRow = ({ application, index }) => {
-  const { applicant_email, job_id } = application;
-
-  const handleDeleteJobs = (id) => {
-  if (!confirm("Are you sure you want to delete this application?")) {
-    return;
-  }
-
-  fetch(`http://localhost:5000/application/${id}`, {
-    method: "DELETE",
-  })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      // Optional: update UI after delete
-    })
-    .catch(error => {
-      console.error("Delete failed:", error);
-    });
-};
-
+const JobApplicationRow = ({application,index}) => {
+  // console.log(application)
+  const {applicant_email,job_id}=application;
   return (
    
     <tr>
@@ -40,29 +22,15 @@ const JobApplicationRow = ({ application, index }) => {
 
           <div>
             <div className="font-bold">{applicant_email}</div>
-            <div className="text-sm opacity-50">United States</div>
+            <div className="text-sm opacity-50">Bangladesh</div>
           </div>
         </div>
       </td>
 
       {/* Job Info */}
       <td>
-        {job_id}
-        <br />
-        <span className="badge badge-ghost badge-sm">
-          Desktop Support Technician
-        </span>
+         {job_id}
       </td>
-
-      {/* Favorite Color */}
-      <td>Purple</td>
-
-      {/* Action */}
-      <th>
-        <button onClick={handleDeleteJobs} className="btn btn-ghost btn-error btn-xs">
-          Delete
-        </button>
-      </th>
     </tr>
 
   );
